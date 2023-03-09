@@ -1,2 +1,2 @@
-GRANT ALL PRIVILEGES ON *.* TO 'django'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'hoshinonaka-pub'@'%';
 FLUSH PRIVILEGES;
