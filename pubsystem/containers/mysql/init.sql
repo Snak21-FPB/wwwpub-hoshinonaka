@@ -1,0 +1,2 @@
+GRANT ALL PRIVILEGES ON *.* TO 'hoshinonaka-pub'@'%';
+FLUSH PRIVILEGES;
