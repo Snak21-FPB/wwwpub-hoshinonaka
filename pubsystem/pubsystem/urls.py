@@ -22,5 +22,5 @@ Including another URLconf
 
 urlpatterns = [
     # Uncomment the next line to enable the admin:
-    # path('admin/', admin.site.urls)
+    # path('admin/', admin.site.urls) # noqa
 ]
