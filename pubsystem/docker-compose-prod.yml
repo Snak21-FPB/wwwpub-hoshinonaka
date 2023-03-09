@@ -30,7 +30,7 @@ services:
     # 8000番ポートをNginx側が接続できるよう開く
     expose:
       - "8000"
-    command: sh -c "gunicorn system.wsgi --bind 0.0.0.0:8000"
+    command: sh -c "gunicorn pubsystem.wsgi --bind 0.0.0.0:8000"
 
     # コンテナ内の環境変数を.env.prodを使って設定
     env_file:

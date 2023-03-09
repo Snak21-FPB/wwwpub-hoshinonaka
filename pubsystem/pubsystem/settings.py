@@ -1,5 +1,5 @@
 """
-Django settings for system project.
+Django settings for pubsystem project.
 
 Based on by 'django-admin startproject' using Django 2.1.2.
 
