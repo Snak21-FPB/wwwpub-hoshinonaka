@@ -30,6 +30,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="accounts\admin.py" />
+    <Compile Include="accounts\apps.py" />
+    <Compile Include="accounts\migrations\__init__.py" />
+    <Compile Include="accounts\models.py" />
+    <Compile Include="accounts\tests.py" />
+    <Compile Include="accounts\views.py" />
+    <Compile Include="accounts\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="pubsystem\__init__.py" />
     <Compile Include="pubsystem\settings.py" />
@@ -37,9 +44,14 @@
     <Compile Include="pubsystem\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="accounts\templates\accounts\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="accounts\" />
+    <Folder Include="accounts\migrations\" />
+    <Folder Include="accounts\templates\" />
+    <Folder Include="accounts\templates\accounts\" />
     <Folder Include="pubsystem\" />
   </ItemGroup>
   <ItemGroup>
