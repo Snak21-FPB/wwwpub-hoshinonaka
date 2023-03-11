@@ -21,7 +21,7 @@ import os
 import environ
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import include, path
 
 env = environ.Env()
 env.read_env(os.path.join(settings.BASE_DIR, ".env"))
@@ -29,4 +29,5 @@ env.read_env(os.path.join(settings.BASE_DIR, ".env"))
 urlpatterns = [
     path(f"{env('ADMIN_URL')}/", admin.site.urls),
     path("", include("posts.urls")),
+    path("accounts/", include("accounts.urls")),
 ]
