@@ -16,11 +16,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
-from django.conf import settings
-from django.urls import path
-import environ
 import os
+
+import environ
+from django.conf import settings
+from django.contrib import admin
+from django.urls import path
 
 env = environ.Env()
 env.read_env(os.path.join(settings.BASE_DIR, ".env"))
