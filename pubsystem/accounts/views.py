@@ -1,5 +1,4 @@
 from django.contrib.auth import views
-from django.views import generic
 
 
 class AccountLoginView(views.LoginView):
