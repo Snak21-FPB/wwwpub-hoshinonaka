@@ -10,4 +10,9 @@ class AccountAdmin(UserAdmin):
         (("ログイン記録"),{"fields":("date_joined",)})
     )
 
+    add_fieldsets = (
+        (None, {"classes":("wide",),"fields":("email","username","password1","password2")}),
+    )
+
 admin.site.register(Account, AccountAdmin)
+

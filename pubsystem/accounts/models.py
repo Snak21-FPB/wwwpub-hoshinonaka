@@ -5,6 +5,9 @@ from django.db import models
 
 
 class Account(AbstractUser):
+    class Meta(AbstractUser.Meta):
+        db_table = "accounts"
+
     email = models.EmailField(verbose_name="メールアドレス", unique=True)
 
     REQUIRED_FIELDS = ("username",)
