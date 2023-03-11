@@ -34,24 +34,35 @@
     <Compile Include="accounts\apps.py" />
     <Compile Include="accounts\migrations\__init__.py" />
     <Compile Include="accounts\models.py" />
-    <Compile Include="accounts\tests.py" />
+    <Compile Include="accounts\tests\test_models.py" />
+    <Compile Include="accounts\tests\__init__.py" />
     <Compile Include="accounts\views.py" />
     <Compile Include="accounts\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="posts\admin.py" />
+    <Compile Include="posts\apps.py" />
+    <Compile Include="posts\migrations\__init__.py" />
+    <Compile Include="posts\models.py" />
+    <Compile Include="posts\views.py" />
+    <Compile Include="posts\__init__.py" />
     <Compile Include="pubsystem\__init__.py" />
     <Compile Include="pubsystem\settings.py" />
     <Compile Include="pubsystem\urls.py" />
     <Compile Include="pubsystem\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="accounts\templates\accounts\index.html" />
+    <Content Include="accounts\tests\__pycache__\test_admin.cpython-311.pyc" />
+    <Content Include="accounts\tests\__pycache__\test_models.cpython-311.pyc" />
+    <Content Include="accounts\tests\__pycache__\__init__.cpython-311.pyc" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="accounts\" />
     <Folder Include="accounts\migrations\" />
-    <Folder Include="accounts\templates\" />
-    <Folder Include="accounts\templates\accounts\" />
+    <Folder Include="accounts\tests\" />
+    <Folder Include="accounts\tests\__pycache__\" />
+    <Folder Include="posts\" />
+    <Folder Include="posts\migrations\" />
     <Folder Include="pubsystem\" />
   </ItemGroup>
   <ItemGroup>
