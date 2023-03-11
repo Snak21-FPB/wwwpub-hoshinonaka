@@ -7,7 +7,7 @@ class AccountAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields":("email","username","password")}),
         (("権限"),{"fields":("is_active","is_staff")}),
-        (("ログイン記録"),{"fields":("date_joined",)})
+        (("ログイン記録"),{"fields":("date_joined","last_login")})
     )
 
     add_fieldsets = (
