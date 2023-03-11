@@ -5,15 +5,20 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0003_alter_account_table'),
+        ("accounts", "0003_alter_account_table"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='account',
-            name='username',
-            field=models.CharField(help_text='32文字以内の半角英数字、@/./+/-/_ が利用できます。', max_length=32, unique=True, validators=[django.contrib.auth.validators.UnicodeUsernameValidator()], verbose_name='ユーザー名'),
+            model_name="account",
+            name="username",
+            field=models.CharField(
+                help_text="32文字以内の半角英数字、@/./+/-/_ が利用できます。",
+                max_length=32,
+                unique=True,
+                validators=[django.contrib.auth.validators.UnicodeUsernameValidator()],
+                verbose_name="ユーザー名",
+            ),
         ),
     ]
