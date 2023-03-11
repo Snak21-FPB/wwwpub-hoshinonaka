@@ -7,7 +7,7 @@ from .models import Account
 class AccountAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": ("email", "username", "password")}),
-        (("権限"), {"fields": ("is_active", "is_staff")}),
+        (("権限"), {"fields": ("is_active", "is_staff", "groups")}),
         (("ログイン記録"), {"fields": ("date_joined", "last_login")}),
     )
 
