@@ -6,6 +6,8 @@ from markdownx.models import MarkdownxField
 class Bureau(models.Model):
     class Meta:
         db_table = "bureaus"
+        verbose_name = "局"
+        verbose_name_plural = "局リスト"
 
     name = models.CharField(verbose_name="名称", max_length=16, unique=True)
     keyword = models.SlugField(
@@ -20,6 +22,7 @@ class Bureau(models.Model):
         get_user_model(),
         on_delete=models.SET_NULL,
         related_name="bureau_creator",
+        verbose_name="作成者",
         null=True,
         editable=False,
     )
@@ -28,6 +31,7 @@ class Bureau(models.Model):
         get_user_model(),
         on_delete=models.SET_NULL,
         related_name="bureau_updater",
+        verbose_name="最終更新者",
         null=True,
         editable=False,
     )
