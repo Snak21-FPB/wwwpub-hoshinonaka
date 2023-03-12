@@ -3,6 +3,7 @@ from django.contrib.admin import ModelAdmin
 
 from . import models
 
+
 class BureauAdmin(ModelAdmin):
     list_display = ("name", "created_by", "created_at", "updated_by", "updated_at")
 
@@ -12,4 +13,5 @@ class BureauAdmin(ModelAdmin):
         obj.updated_by = request.user
         return super().save_model(request, obj, form, change)
 
-admin.site.register(models.Bureau,BureauAdmin)
+
+admin.site.register(models.Bureau, BureauAdmin)
