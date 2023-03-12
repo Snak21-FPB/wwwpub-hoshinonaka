@@ -1,13 +1,16 @@
+from django.conf import settings
+from django.contrib.auth import SESSION_KEY, get_user_model
 from django.test import TestCase
-from django.urls import reverse
-from django.contrib.auth import get_user_model, SESSION_KEY
+from django.urls import reverse, reverse_lazy
 
 
 class TestAccountLoginView(TestCase):
     @classmethod
     def setUpTestData(cls):
-        get_user_model().objects.create(username="testuser", email="testuser@example.com", password="test2023user")
-    
+        get_user_model().objects.create(
+            username="testuser", email="testuser@example.com", password="test2023user"
+        )
+
     def setUp(self):
         self.user = get_user_model().objects.get(username="testuser")
         self.view = reverse("accounts:login")
@@ -17,16 +20,19 @@ class TestAccountLoginView(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_valid_login(self):
-        response = self.client.post(self.view,{"email":"testuser@example.com","password":"test2023user"})
+        response = self.client.post(
+            self.view, {"email": "testuser@example.com", "password": "test2023user"}
+        )
         form = response.context["form"]
-        self.assertRedirects(response, reverse("posts:home"), 302, 200)
+        self.assertRedirects(response, reverse(settings.LOGIN_REDIRECT_URL))
         self.assertTrue(form.is_valid())
         self.assertIn(SESSION_KEY, self.client.session)
-    
+
     def test_invalid_login(self):
-        response = self.client.post(self.view,{"email":"testuser@example.com","password":"invalidpass"})
+        response = self.client.post(
+            self.view, {"email": "testuser@example.com", "password": "invalidpass"}
+        )
         form = response.context["form"]
         self.assertEqual(response.status_code, 200)
         self.assertFalse(form.is_valid())
-        self.assertNotIn(SESSION_KEY,self.client.session)
-    
+        self.assertNotIn(SESSION_KEY, self.client.session)

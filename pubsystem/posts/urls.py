@@ -5,4 +5,5 @@ from . import views
 app_name = "posts"
 urlpatterns = [
     path("", views.TopView.as_view(), name="top"),
+    path("home/", views.HomeView.as_view(), name="home"),
 ]
