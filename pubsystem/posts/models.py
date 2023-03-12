@@ -21,6 +21,7 @@ class Bureau(models.Model):
         on_delete=models.SET_NULL,
         related_name="bureau_creator",
         null=True,
+        editable=False,
     )
     updated_at = models.DateTimeField(verbose_name="最終更新日時", auto_now=True)
     updated_by = models.ForeignKey(
@@ -28,4 +29,5 @@ class Bureau(models.Model):
         on_delete=models.SET_NULL,
         related_name="bureau_updater",
         null=True,
+        editable=False,
     )
