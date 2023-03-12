@@ -17,3 +17,7 @@ class TestDjangoSettings(TestCase):
     def test_auth_model_setting(self):
         """認証ユーザーモデル設定"""
         self.assertEqual(get_user_model(), Account)
+    
+    def test_login_redirect_setting(self):
+        """ログイン後遷移先設定"""
+        self.assertEqual(settings.LOGIN_REDIRECT_URL, "posts:home")

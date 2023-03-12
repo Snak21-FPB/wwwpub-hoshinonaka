@@ -6,6 +6,7 @@ from django.urls import reverse
 
 class TestTopView(TestCase):
     def test_can_view(self):
+        """すべてのユーザーが正しく表示できる"""
         response = self.client.get(reverse("posts:top"))
         self.assertEqual(response.status_code, 200)
 
@@ -22,12 +23,14 @@ class TestHomeView(TestCase):
         self.view_url = reverse("posts:home")
 
     def test_user_can_view(self):
+        """認証されたユーザーが正しく表示できる"""
         self.client.force_login(self.testuser)
         response = self.client.get(self.view_url)
         self.assertIn(SESSION_KEY, self.client.session)
         self.assertEqual(response.status_code, 200)
 
     def test_anonymous_redirect_login(self):
+        """認証されていないユーザーがログインページに遷移される"""
         response = self.client.get(self.view_url)
         self.assertNotIn(SESSION_KEY, self.client.session)
         self.assertEqual(response.status_code, 302)
