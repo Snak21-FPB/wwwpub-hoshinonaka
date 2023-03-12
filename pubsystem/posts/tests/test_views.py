@@ -30,4 +30,6 @@ class TestHomeView(TestCase):
     def test_anonymous_redirect_login(self):
         response = self.client.get(self.view_url)
         self.assertNotIn(SESSION_KEY, self.client.session)
-        self.assertRedirects(response, reverse(settings.LOGIN_URL), 302, 200)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url.split("?")[0], reverse(settings.LOGIN_URL))
+
