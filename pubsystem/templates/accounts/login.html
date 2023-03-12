@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block header %}<h1>Login</h1>{% endblock %}
-{% block body %}This is Login Page{% endblock %}
+{% block body %}
+    <p>This page is Login view</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ログイン</button>
+    </form>
+{% endblock %}

@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
 import environ
+from django.urls import reverse
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -113,6 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 LANGUAGE_CODE = "ja"
@@ -133,6 +135,8 @@ AUTHENTICATION_BACKENDS = (
     # "rules.permissions.ObjectPermissionBackend",
     "django.contrib.auth.backends.ModelBackend",
 )
+
+LOGIN_REDIRECT_URL = "/home/"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
