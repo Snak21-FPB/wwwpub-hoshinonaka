@@ -35,4 +35,3 @@ class TestHomeView(TestCase):
         self.assertNotIn(SESSION_KEY, self.client.session)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url.split("?")[0], reverse(settings.LOGIN_URL))
-

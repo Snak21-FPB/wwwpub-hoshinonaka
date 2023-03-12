@@ -23,7 +23,7 @@ class TestAccountLogoutView(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.get(username="testuser")
         self.view = reverse("accounts:logout")
-    
+
     def test_can_logout(self):
         """POSTリクエストによってログアウトできる"""
         self.client.force_login(self.user)

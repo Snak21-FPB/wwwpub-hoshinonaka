@@ -6,5 +6,5 @@ class TopView(generic.TemplateView):
     template_name = "posts/top.html"
 
 
-class HomeView(LoginRequiredMixin ,generic.TemplateView):
+class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "posts/home.html"
