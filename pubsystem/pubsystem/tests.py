@@ -1,11 +1,11 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.test import TestCase
+from django.test import SimpleTestCase
 
 from accounts.models import Account
 
 
-class TestDjangoSettings(TestCase):
+class TestDjangoSettings(SimpleTestCase):
     def test_language_setting(self):
         """言語設定"""
         self.assertEqual(settings.LANGUAGE_CODE, "ja")
