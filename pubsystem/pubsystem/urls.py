@@ -16,11 +16,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-# Uncomment next two lines to enable admin:
-# from django.contrib import admin
-# from django.urls import path
+import os
+
+import environ
+from django.conf import settings
+from django.contrib import admin
+from django.urls import include, path
+
+env = environ.Env()
+env.read_env(os.path.join(settings.BASE_DIR, ".env"))
 
 urlpatterns = [
-    # Uncomment the next line to enable the admin:
-    # path('admin/', admin.site.urls) # noqa
+    path(f"{env('ADMIN_URL')}/", admin.site.urls),
+    path("", include("posts.urls")),
+    path("accounts/", include("accounts.urls")),
 ]

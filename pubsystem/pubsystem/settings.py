@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "accounts.apps.AccountsConfig",
+    "posts.apps.PostsConfig",
 ]
 
 # Middleware framework
@@ -111,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 LANGUAGE_CODE = "ja"
@@ -124,13 +127,17 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = [os.path.join(BASE_DIR, "static")]
 
-# AUTH_USER_MODEL = "accounts.PubHoshinonakaAccount"
+AUTH_USER_MODEL = "accounts.Account"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTHENTICATION_BACKENDS = (
     # "rules.permissions.ObjectPermissionBackend",
     "django.contrib.auth.backends.ModelBackend",
 )
+
+LOGIN_URL = "accounts:login"
+LOGIN_REDIRECT_URL = "posts:home"
+LOGOUT_REDIRECT_URL = "posts:top"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
