@@ -96,7 +96,7 @@ class TestBureauDetailView(TestCase):
     def setUp(self):
         self.bureau = Bureau.objects.create(name="テスト局", keyword="test", sort_num=0)
         self.client_response = self.client.get(
-            reverse("posts:bureau"), kwargs={"name": self.bureau.name}
+            reverse("posts:bureau", kwargs={"keyword": self.bureau.keyword}),
         )
 
     def test_view(self):
@@ -105,4 +105,4 @@ class TestBureauDetailView(TestCase):
 
     def test_show_specified_bureau(self):
         """名前で指定された局を正しく表示できる"""
-        self.assertEqual(self.client_response["context"], self.bureau)
+        self.assertEqual(self.client_response.context["bureau"], self.bureau)
