@@ -20,3 +20,6 @@ class Account(AbstractUser):
 
     REQUIRED_FIELDS = ("username",)
     USERNAME_FIELD = "email"
+
+    def __str__(self):
+        return self.username

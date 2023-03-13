@@ -1,8 +1,10 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %} - Hoshinonaka/Snak</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <header>
+        <h1>{% block title_display %}{% endblock %}</h1>
         {% block header %}{% endblock %}
     </header>
     <body>

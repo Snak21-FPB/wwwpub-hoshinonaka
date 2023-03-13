@@ -30,4 +30,5 @@ urlpatterns = [
     path(f"{env('ADMIN_URL')}/", admin.site.urls),
     path("", include("posts.urls")),
     path("accounts/", include("accounts.urls")),
+    path("markdownx/", include("markdownx.urls")),
 ]
