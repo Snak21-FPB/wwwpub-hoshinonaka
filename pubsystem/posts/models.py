@@ -35,3 +35,6 @@ class Bureau(models.Model):
         null=True,
         editable=False,
     )
+
+    def __str__(self):
+        return self.name
