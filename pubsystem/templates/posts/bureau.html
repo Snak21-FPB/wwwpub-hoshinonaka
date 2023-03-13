@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ bureau.name }}
+{% endblock %}
+
+{% block title_display %}
+    {{ bureau.name }}
+{% endblock %}
+
+{% block body %}
+    {{ bureau.outline_html | safe }}
+{% endblock %}
+
+{% block footer %}
+    <a href="{% url 'posts:top' %}">トップへ</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'posts:home' %}">ホームへ</a>
+    {% endif %}
+{% endblock %}

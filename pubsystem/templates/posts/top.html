@@ -20,7 +20,7 @@
     <h1>局一覧</h1>
     <p>現在、政府は以下の{{ bureaus.count }}局で構成されています。</p>
     {% for bureau in bureaus %}
-        <p>{{ bureau.name }}</p>
+        <p><a href="{% url 'posts:bureau' bureau.keyword %}">{{ bureau.name }}</a></p>
     {% endfor %}
 {% endblock %}
 

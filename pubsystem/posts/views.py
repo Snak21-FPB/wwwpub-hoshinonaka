@@ -20,3 +20,10 @@ class HomeView(LoginRequiredMixin, generic.TemplateView):
         context = super().get_context_data(**kwargs)
         context["bureaus"] = Bureau.objects.all()
         return context
+
+class BureauDetailView(generic.DetailView):
+    model = Bureau
+    template_name = "posts/bureau.html"
+    slug_field = "keyword"
+    slug_url_kwarg = "keyword"
+    context_object_name = "bureau"

@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from markdownx.models import MarkdownxField
+from markdown import markdown
 
 
 class Bureau(models.Model):
@@ -39,3 +40,7 @@ class Bureau(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def outline_html(self):
+        return markdown(self.outline)
