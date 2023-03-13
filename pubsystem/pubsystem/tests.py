@@ -6,18 +6,18 @@ from accounts.models import Account
 
 
 class TestDjangoSettings(SimpleTestCase):
-    def test_language_setting(self):
+    def test_language(self):
         """言語設定"""
         self.assertEqual(settings.LANGUAGE_CODE, "ja")
 
-    def test_timezone_setting(self):
+    def test_timezone(self):
         """タイムゾーン設定"""
         self.assertEqual(settings.TIME_ZONE, "Asia/Tokyo")
 
-    def test_auth_model_setting(self):
+    def test_auth_model(self):
         """認証ユーザーモデル設定"""
         self.assertEqual(get_user_model(), Account)
 
-    def test_login_redirect_setting(self):
+    def test_login_redirect(self):
         """ログイン後遷移先設定"""
         self.assertEqual(settings.LOGIN_REDIRECT_URL, "posts:home")
