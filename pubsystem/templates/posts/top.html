@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
+
+{% block title %}Top{% endblock %}
+{% block title_display %}Top View{% endblock %}
+
 {% block header %}
-    <h1>Top View</h1>
     {% if request.user.is_authenticated %}
-        <p>{{ request.user.username }} でログインしています</p>
+        {% block header_info %}
+            <p>{{ request.user.username }} でログインしています <a href="{% url 'posts:home' %}">ホーム画面へ</a></p>
+        {% endblock %}
         <form action="{% url 'accounts:logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">ログアウト</button>
@@ -12,7 +17,8 @@
 {% endblock %}
 
 {% block body %}
-    This page is top view
+    <h1>局一覧</h1>
+    <p>現在、政府は以下の{{ bureaus.count }}局で構成されています。</p>
     {% for bureau in bureaus %}
         <p>{{ bureau.name }}</p>
     {% endfor %}
@@ -21,7 +27,7 @@
 {% block footer %}
     {% if not request.user.is_authenticated %}
         <p>
-            PHアカウント登録をされている方<a href="{% url 'accounts:login' %}">ログインページへ</a>
+            PHアカウント登録をされている方は、<a href="{% url 'accounts:login' %}">ログインページへ</a>
         </p>
     {% endif %}
 {% endblock %}

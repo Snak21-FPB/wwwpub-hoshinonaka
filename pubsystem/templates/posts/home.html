@@ -1,17 +1,9 @@
-{% extends "base.html" %}
+{% extends "posts/top.html" %}
 
-{% block header %}
-    <h1>Home View</h1>
-    <p>{{ request.user.username }} でログインしています</p>
-    <form action="{% url 'accounts:logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">ログアウト</button>
-    </form>
-{% endblock %}
+{% block title %}Home{% endblock %}
 
-{% block body %}
-    This page is home view
-    {% for bureau in bureaus %}
-        <p>{{ bureau.name }}</p>
-    {% endfor %}
+{% block title_display %}Home View{% endblock %}
+
+{% block header_info %}
+    <p>{{ request.user.username }} でログインしています <a href="{% url 'posts:top' %}">トップ画面へ</a></p>
 {% endblock %}
