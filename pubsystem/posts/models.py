@@ -8,6 +8,7 @@ class Bureau(models.Model):
         db_table = "bureaus"
         verbose_name = "局"
         verbose_name_plural = "局リスト"
+        ordering = ("sort_num",)
 
     name = models.CharField(verbose_name="名称", max_length=16, unique=True)
     keyword = models.SlugField(

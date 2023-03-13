@@ -13,6 +13,9 @@
 
 {% block body %}
     This page is top view
+    {% for bureau in bureaus %}
+        <p>{{ bureau.name }}</p>
+    {% endfor %}
 {% endblock %}
 
 {% block footer %}

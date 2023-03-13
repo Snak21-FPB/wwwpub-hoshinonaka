@@ -11,4 +11,7 @@
 
 {% block body %}
     This page is home view
+    {% for bureau in bureaus %}
+        <p>{{ bureau.name }}</p>
+    {% endfor %}
 {% endblock %}
