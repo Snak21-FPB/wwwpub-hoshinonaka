@@ -21,6 +21,7 @@ class HomeView(LoginRequiredMixin, generic.TemplateView):
         context["bureaus"] = Bureau.objects.all()
         return context
 
+
 class BureauDetailView(generic.DetailView):
     model = Bureau
     template_name = "posts/bureau.html"

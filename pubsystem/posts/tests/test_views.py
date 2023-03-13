@@ -91,15 +91,18 @@ class TestHomeView(TestCase):
             Bureau.objects.order_by("sort_num").last(),
         )
 
+
 class TestBureauDetailView(TestCase):
     def setUp(self):
         self.bureau = Bureau.objects.create(name="テスト局", keyword="test", sort_num=0)
-        self.client_response = self.client.get(reverse("posts:bureau"), kwargs={"name":self.bureau.name})
-    
+        self.client_response = self.client.get(
+            reverse("posts:bureau"), kwargs={"name": self.bureau.name}
+        )
+
     def test_view(self):
         """全てのユーザーが正しく表示できる"""
         self.assertEqual(self.client_response.status_code, 200)
-    
+
     def test_show_specified_bureau(self):
         """名前で指定された局を正しく表示できる"""
         self.assertEqual(self.client_response["context"], self.bureau)
